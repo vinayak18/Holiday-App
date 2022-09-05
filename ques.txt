@@ -1,0 +1,27 @@
+ABCD123 organisation has multiple branches located in different cities they need a holiday calendar application. You need to create the application for employees to view holidays.
+
+Requirements:
+1. Holidays differ for each city, the application should have the option to select city.
+2. User should not be able to navigate next month If the navigated month is December and navigated year is the current year but the current month should not be December. Also should not be able to navigate if the navigated year is one year greater than the current year and the current month is December.
+3. If the navigated year is the current year while the navigated month is other than December and then the user should not be able to navigate next year. Also should not navigate if the navigated year is one year greater than the current year. Otherwise, the user can able to navigate next year
+
+Components:
+1. DashboardComponent
+    A. The dashboard contains calendar navigation.
+    B. Send the year,month index, and city to calendar view component. 
+2. CalendarViewComponent
+    A. Use Calendar view component to display calendar.
+    B. Get the month index, year and city from dashboard component based on it generate calendar.
+    C. Fetch the holidays and display it..
+
+Service:
+1. HolidayService
+    A. Use the holiday service to make API request.
+    
+API request and response
+    1. api/cities -> used for getting city list. Use GET request
+Response ex -> [{"cityName":"CitySampleA"},{"cityName":"CitySampleB"},{"cityName":"CityC"},{"cityName":"CityD"}]
+
+    2. api/monthly -> used for getting holiday list. Use POST request
+Request ex -> {"city_name":"CityA","year":2020,"month":3}
+Response ex -> [{"city_name":"CityA","date":"10/03/2020","holidayName":"HolidayOne","id":"5e60ced308bd7a2e3ee8b394"},{"city_name":"CityA","date":"12/03/2020","holidayName":"HolidayTwo","id":"5e61e9cf0464106617a38ec6"}]
